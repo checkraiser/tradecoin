@@ -5,9 +5,10 @@ require_relative 'graphql/schema'
 
 class TradeCoinApp < Sinatra::Base
     use Rack::PostBodyContentTypeParser 
-   
+    get '/' do
+        'Hello World'
+    end
     post '/graphql' do
-        p params
         result = TradeCoinAppSchema.execute(
           params[:query],
           variables: params[:variables],
