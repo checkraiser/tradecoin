@@ -1,20 +1,18 @@
-ENV['RACK_ENV'] = 'test'
-
-require_relative '../app'  # <-- your sinatra app
-require 'capybara'
-require 'capybara/dsl'
-require 'test/unit'
+require_relative 'helper'
 
 class HelloWorldTest < Test::Unit::TestCase
-  include Capybara::DSL
-  # Capybara.default_driver = :selenium # <-- use Selenium driver
-
-  def setup
-    Capybara.app = TradeCoinApp
-  end
+  include Helper
 
   def test_it_works
     visit '/'
     assert page.has_content?('Hello World')
+  end
+
+  def test_graphql
+    body = {
+        query: "{coin(name: \"XVG\") { name }}"
+    }
+    result = post_json("/graphql", body.to_json)
+    assert_equal result.status, 200
   end
 end
