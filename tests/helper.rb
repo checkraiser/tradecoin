@@ -5,13 +5,13 @@ require 'capybara/dsl'
 require 'test/unit'
 require_relative '../app'
 module Helper
-    include Capybara::DSL
+    #include Capybara::DSL
     include Rack::Test::Methods
-    Capybara.default_driver = :selenium
+    #Capybara.default_driver = :selenium
     
-    def setup
-        Capybara.app = TradeCoinApp
-    end
+    #def setup
+    #    Capybara.app = TradeCoinApp
+    #end
 
     def app
         TradeCoinApp

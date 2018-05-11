@@ -1,19 +1,11 @@
-require 'sinatra'
-require 'sinatra/json'
-require 'rack/contrib'
-require_relative 'graphql/schema'
+require_relative 'application_controller'
 
-class TradeCoinApp < Sinatra::Base
-    use Rack::PostBodyContentTypeParser 
+class TradeCoinApp < ApplicationController
     get '/' do
-        'Hello World'
+        File.read(File.join('public', 'index.html'))
     end
     post '/graphql' do
-        result = TradeCoinAppSchema.execute(
-          params[:query],
-          variables: params[:variables],
-          context: { current_user: nil },
-        )
+        result = query(params)
         json result
-      end
+    end
 end

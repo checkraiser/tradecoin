@@ -57,6 +57,7 @@ GEM
       rack-protection (= 2.0.1)
       sinatra (= 2.0.1)
       tilt (>= 1.3, < 3)
+    sinatra-cross_origin (0.4.0)
     test-unit (3.2.7)
       power_assert
     tilt (2.0.8)
@@ -78,6 +79,7 @@ DEPENDENCIES
   selenium-webdriver
   sinatra
   sinatra-contrib
+  sinatra-cross_origin
   test-unit
 
 BUNDLED WITH

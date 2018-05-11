@@ -1,15 +1,15 @@
 require 'graphql'
-require_relative './strategy_type'
-module Types  
+module Types
   CoinType = GraphQL::ObjectType.define do
     name 'Coin'
-    description 'Coin'
+    field :image_url, types.String
     field :name, types.String
-    field :lookback, types.Int
-    field :duration, types.Int
-    field :recommendations, types[Types::StrategyType]
-    field :extras, types[Types::StrategyType]
-    field :supports, types[types.Float]
-    field :resistances, types[types.Float]
+    field :symbol, types.String
+    field :coin_name, types.String
+    field :full_name, types.String
+    field :algorithm, types.String
+    field :proof_type, types.String
+    field :total_supply, types.Int
+    field :sort_order, types.Int
   end
 end

@@ -14,3 +14,4 @@ group :test do
     gem 'test-unit'
     gem 'selenium-webdriver'
 end
+gem 'sinatra-cross_origin'
