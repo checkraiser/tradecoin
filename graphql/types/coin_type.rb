@@ -9,7 +9,7 @@ module Types
     field :duration, types.Int
     field :recommendations, types[Types::StrategyType]
     field :extras, types[Types::StrategyType]
-    field :supports, types[types.String]
-    field :resistances, types[types.String]
+    field :supports, types[types.Float]
+    field :resistances, types[types.Float]
   end
 end

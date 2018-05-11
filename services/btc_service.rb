@@ -12,14 +12,13 @@ def get_gann(high, low, close)
 
     body = HTTParty.post(gannurl, body: opts, headers: headers).body
     doc = Nokogiri::HTML(body)
-    File.open('test.html','w') { |f| f.write(doc) }
     r1 = doc.at('#impRes1').text
     r2 = doc.at('#impRes2').text
     r3 = doc.at('#impRes3').text
     s1 = doc.at('#impSup1').text
     s2 = doc.at('#impSup2').text
     s3 = doc.at('#impSup3').text
-    [s1, s2, s3, r1, r2, r3]
+    [s1.to_f, s2.to_f, s3.to_f, r1.to_f, r2.to_f, r3.to_f]
 end
 def get_elliott(high, low, close, open)
     ellioturl = 'http://www.pivottrading.co.in/pages/advancedElliott.php'
