@@ -15,3 +15,4 @@ group :test do
     gem 'selenium-webdriver'
 end
 gem 'sinatra-cross_origin'
+gem 'rack-graphiql'
